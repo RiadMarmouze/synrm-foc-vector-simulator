@@ -39,39 +39,40 @@
             font-style: italic;
             color: #fcd34d;
         }
-        .formula .highlight {
-            color: #34d399;
-        }
-        /* Legend styling */
+        /* Legend styling - compact and clean */
         .legend-item {
             display: flex;
             align-items: center;
-            gap: 8px;
-            padding: 2px 0;
+            gap: 6px;
+            padding: 1px 0;
         }
         .legend-line {
-            width: 24px;
-            height: 3px;
+            width: 20px;
+            height: 2.5px;
             border-radius: 2px;
             flex-shrink: 0;
         }
         .legend-line.dashed {
-            border-top: 3px dashed;
+            border-top: 2.5px dashed;
             height: 0;
             background: transparent !important;
         }
         .legend-line.dotted {
-            border-top: 3px dotted;
+            border-top: 2.5px dotted;
             height: 0;
             background: transparent !important;
         }
         .legend-text {
-            font-size: 11px;
+            font-size: 10px;
             color: #cbd5e1;
+            white-space: nowrap;
         }
         .legend-text sub {
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             color: #94a3b8;
+        }
+        .legend-text i {
+            font-style: italic;
         }
     </style>
 </head>
@@ -219,29 +220,29 @@
         <!-- Right Column: Interactive Vector Canvas (7 Cols) -->
         <div class="lg:col-span-7 flex flex-col gap-4">
             <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 shadow-lg flex flex-col items-center justify-center relative">
-                <!-- Improved Legend - Bottom Left with better styling -->
-                <div class="absolute bottom-4 left-4 z-10 bg-slate-900/95 backdrop-blur-md p-3 rounded-lg border border-slate-700 shadow-xl min-w-[160px]">
-                    <h3 class="font-semibold text-slate-300 text-xs mb-2 border-b border-slate-700 pb-1.5">Visualization Legend</h3>
-                    <div class="space-y-1.5">
+                
+                <!-- Legend - Top Right corner, compact and non-intrusive -->
+                <div class="absolute top-3 right-3 z-10 bg-slate-900/90 backdrop-blur-sm p-2.5 rounded-lg border border-slate-700 shadow-lg">
+                    <div class="space-y-1">
                         <div class="legend-item">
                             <span class="legend-line" style="background: #0284c7;"></span>
-                            <span class="legend-text">d-axis (<i>i</i><sub>d</sub>)</span>
+                            <span class="legend-text"><i>i</i><sub>d</sub></span>
                         </div>
                         <div class="legend-item">
                             <span class="legend-line" style="background: #d97706;"></span>
-                            <span class="legend-text">q-axis (<i>i</i><sub>q</sub>)</span>
+                            <span class="legend-text"><i>i</i><sub>q</sub></span>
                         </div>
                         <div class="legend-item">
                             <span class="legend-line" style="background: #a78bfa;"></span>
-                            <span class="legend-text">Stator current (<i>I</i><sub>s</sub>)</span>
+                            <span class="legend-text"><i>I</i><sub>s</sub></span>
                         </div>
                         <div class="legend-item">
                             <span class="legend-line dashed" style="border-color: #34d399;"></span>
-                            <span class="legend-text">Torque line (<i>T</i><sub>e</sub>)</span>
+                            <span class="legend-text"><i>T</i><sub>e</sub></span>
                         </div>
                         <div class="legend-item">
                             <span class="legend-line dotted" style="border-color: #64748b;"></span>
-                            <span class="legend-text">MTPA path (45°)</span>
+                            <span class="legend-text">MTPA</span>
                         </div>
                     </div>
                 </div>
