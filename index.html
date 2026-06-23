@@ -42,6 +42,37 @@
         .formula .highlight {
             color: #34d399;
         }
+        /* Legend styling */
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 2px 0;
+        }
+        .legend-line {
+            width: 24px;
+            height: 3px;
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+        .legend-line.dashed {
+            border-top: 3px dashed;
+            height: 0;
+            background: transparent !important;
+        }
+        .legend-line.dotted {
+            border-top: 3px dotted;
+            height: 0;
+            background: transparent !important;
+        }
+        .legend-text {
+            font-size: 11px;
+            color: #cbd5e1;
+        }
+        .legend-text sub {
+            font-size: 0.65rem;
+            color: #94a3b8;
+        }
     </style>
 </head>
 <body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
@@ -188,14 +219,31 @@
         <!-- Right Column: Interactive Vector Canvas (7 Cols) -->
         <div class="lg:col-span-7 flex flex-col gap-4">
             <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 shadow-lg flex flex-col items-center justify-center relative">
-                <!-- Toggle Overlay Legend -->
-                <div class="absolute top-6 left-6 z-10 bg-slate-900/90 backdrop-blur-md p-3 rounded-lg border border-slate-700 text-xs space-y-1.5 shadow-md">
-                    <h3 class="font-semibold text-slate-300 mb-1">Visualization Legend</h3>
-                    <div class="flex items-center gap-2"><span class="w-3.5 h-0.5 bg-sky-400 inline-block"></span> <span>d-axis current vector (<i>i</i><sub>d</sub>)</span></div>
-                    <div class="flex items-center gap-2"><span class="w-3.5 h-0.5 bg-amber-400 inline-block"></span> <span>q-axis current vector (<i>i</i><sub>q</sub>)</span></div>
-                    <div class="flex items-center gap-2"><span class="w-3.5 h-0.5 bg-violet-400 inline-block"></span> <span>Stator current vector (<i>I</i><sub>s</sub>)</span></div>
-                    <div class="flex items-center gap-2"><span class="w-3.5 h-0.5 bg-emerald-400 inline-block border-t border-dashed"></span> <span>Equivalent Torque Line (<i>T</i><sub>e</sub>)</span></div>
-                    <div class="flex items-center gap-2"><span class="w-3.5 h-0.5 bg-slate-500 inline-block border-t border-dotted"></span> <span>Optimal MTPA Path (45°)</span></div>
+                <!-- Improved Legend - Bottom Left with better styling -->
+                <div class="absolute bottom-4 left-4 z-10 bg-slate-900/95 backdrop-blur-md p-3 rounded-lg border border-slate-700 shadow-xl min-w-[160px]">
+                    <h3 class="font-semibold text-slate-300 text-xs mb-2 border-b border-slate-700 pb-1.5">Visualization Legend</h3>
+                    <div class="space-y-1.5">
+                        <div class="legend-item">
+                            <span class="legend-line" style="background: #0284c7;"></span>
+                            <span class="legend-text">d-axis (<i>i</i><sub>d</sub>)</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-line" style="background: #d97706;"></span>
+                            <span class="legend-text">q-axis (<i>i</i><sub>q</sub>)</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-line" style="background: #a78bfa;"></span>
+                            <span class="legend-text">Stator current (<i>I</i><sub>s</sub>)</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-line dashed" style="border-color: #34d399;"></span>
+                            <span class="legend-text">Torque line (<i>T</i><sub>e</sub>)</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-line dotted" style="border-color: #64748b;"></span>
+                            <span class="legend-text">MTPA path (45°)</span>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- The Interactive Canvas -->
